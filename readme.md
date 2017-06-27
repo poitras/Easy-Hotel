@@ -1,0 +1,1 @@
+This repo contain a hotel information project using the MEAN stack.

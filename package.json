@@ -1,0 +1,29 @@
+{
+  "name": "mean-app",
+  "version": "1.0.0",
+  "description": "MEAN stack application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poitras/Easy-Hotel.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Nicolas Poitras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poitras/Easy-Hotel/issues"
+  },
+  "homepage": "https://github.com/poitras/Easy-Hotel#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
+}
