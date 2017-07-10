@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path'); // to be able to get html file in a html method call
 
-var routes = require('./routes');
+var routes = require('./api/routes');
 
 app.set('port', 3000);
 
