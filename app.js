@@ -6,7 +6,7 @@ var routes = require('./api/routes');
 
 app.set('port', 3000);
 
-app.use(function (req, res, next) {    // utilisation du middleware pour afficher les info concernant le requète doit être avant le call static car il descent le fichier
+app.use(function (req, res, next) {    // utilisation du middleware pour afficher les info concernant la requète doit être avant le call static car il descent le fichier
     console.log(req.method, req.url);
     next();   
 });
@@ -17,5 +17,5 @@ app.use('/api', routes); // will look in the routes folder for any routes avec /
 
 var server = app.listen(app.get('port'), function () {
     var port = server.address().port;
-   console.log("Its happening on port: " + port); 
+    console.log("Its happening on port: " + port);
 });
