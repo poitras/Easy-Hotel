@@ -2,6 +2,9 @@ var hotelData = require('../data/hotel-data.json'); // create json data array
 
 module.exports.hotelsGetAll = function (req, res) {
     console.log("GET some json");
+    console.log(req.query);
+    console.log("yololo");
+    
     res
         .status(200)
         .json( hotelData );
