@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var path = require("path"); // to be able to get html file in a html method call
+var bodyParser = require('body-parser');
 
 var routes = require("./api/routes");
 
@@ -12,9 +13,12 @@ app.set("port", 3000);
   next();
 }); */
 
-app.use(express.static(path.join(__dirname, "public"))); // Will go directly in public folder and search for html
+app.use(express.static(path.join(__dirname, "public"))); // Will go directly go in public folder and search for html
 
-app.use("/api", routes); // will look in the routes folder for any routes avec / but could be use like '/api'
+// To parse the data in the api routes
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use("/api", routes); // will look in the api folders for a route folder and then for index.js 
 
 var server = app.listen(app.get("port"), function() {
   var port = server.address().port;
