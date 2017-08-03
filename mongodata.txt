@@ -5,6 +5,10 @@ db.tech.insert(
             role: "Web application server"
         },
         {
+            name: "MongoDB",
+            role: "Database"
+        },
+        {
             name: "Angular",
             role: "Front-end framework"
         },
