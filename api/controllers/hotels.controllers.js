@@ -1,9 +1,14 @@
+var dbconn = require('../data/dbconnection');
 var hotelData = require('../data/hotel-data.json'); // create json data array
 
 module.exports.hotelsGetAll = function (req, res) {
+
+    // call everytime to get a new one
+    var db = dbconn.get();
+    
     console.log("GET the Hotels");
     console.log(req.query);
-    // to use with params liek /hotels?offset=2&count=2
+    // to use with params like /hotels?offset=2&count=2
     var data = hotelData;
     if (req.query) {
         var offset = 0;
@@ -24,6 +29,9 @@ module.exports.hotelsGetAll = function (req, res) {
 };
 
 module.exports.hotelsGetOne = function (req, res) {
+
+    var db = dbconn.get();
+
     var hotelId = req.params.hotelId;
     var thisHotel = hotelData[ hotelId ]; // get data at position "hotelId" in hotelData array 
     console.log("GET hotel with id: " + hotelId);
@@ -33,6 +41,9 @@ module.exports.hotelsGetOne = function (req, res) {
 };
 
 module.exports.hotelsAddOne = function (req, res) {
+
+    var db = dbconn.get();
+
     console.log("POST new hotel");
     console.log(req.body);
     res
