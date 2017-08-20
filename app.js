@@ -1,4 +1,4 @@
-require('./api/data/dbconnection').open();
+require('./api/data/db');
 var express = require("express");
 var app = express();
 var path = require("path"); // to be able to get html file in a html method call
