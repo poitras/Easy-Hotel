@@ -15,6 +15,7 @@ app.set("port", 3000);
 }); */
 
 app.use(express.static(path.join(__dirname, "public"))); // Will go directly go in public folder and search for html
+app.use('/scripts', express.static(__dirname + '/node_modules/angular/'));
 
 // To parse the data in the api routes
 app.use(bodyParser.urlencoded({ extended: false }));
