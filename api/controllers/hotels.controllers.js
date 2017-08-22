@@ -46,8 +46,8 @@ module.exports.hotelsGetAll = function (req, res) {
 
     // to use with params like /hotels?offset=2&count=2
     var offset = 0;
-    var count = 5;
-    var maxCount = 10;
+    var count = 25;
+    var maxCount = 30;
 
     if (req.query && req.query.lat && req.query.lng) {
         runGeoQuery(req, res);
@@ -209,5 +209,26 @@ module.exports.hotelsUpdateOne = function(req, res) {
                     }
                 });
             }
+        });
+}
+
+module.exports.hotelsDeleteOne = function(req, res) {
+    var hotelId = req.params.hotelId;
+    console.log("GET hotel with id", hotelId);
+
+    Hotel
+        .findByIdAndRemove(hotelId)
+        .exec(function(err, hotel) {
+            if (err) {
+                console.log('Error finding hotels');
+                res
+                    .status(404)
+                    .json(err);
+            } else {
+                console.log('Hotel deleted, id:', hotelId);
+                res
+                    .status(204)
+                    .json();
+            } 
         });
 }
