@@ -1,0 +1,22 @@
+// run thought all the hotel, will find the first review for each hotel
+// will create a _id for the reviews filed and will set it has id
+db.hotels.update(
+    {},
+    {
+        $set : {
+            "reviews.0._id" : ObjectId() 
+        }
+    },
+    {
+        multi : true
+    }
+)
+// will add to second review of that hotel a _id
+db.hotels.update(
+    { "name" : "Grand Hotel Palatino" },
+    {
+        $set : {
+            "reviews.1._id" : ObjectId() 
+        }
+    }
+)
