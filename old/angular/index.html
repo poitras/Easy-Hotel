@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>Ex angular</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/scripts/angular.js"></script>
+        <script>
+            angular.module('myApp', []).controller('MyController', MyController);
+            function MyController($scope) {
+                // now we can attach property to $scope
+                $scope.name = "Augular tests";
+                $scope.rebels = [
+                    {name: 'Luke Skywalker', profession: 'Jedi', weapon: 'lightsaber'},
+                    {name: 'Ben Kenobi', profession: 'Jedi', weapon: 'lightsaber'},
+                    {name: 'Han Solo', profession: 'Smuggler', weapon: 'laser blaster'},
+                    {name: 'Chewbacca', profession: 'Pilot', weapon: 'blowcaster'},
+                ];
+
+                $scope.number = 0;
+                $scope.increment = (amount) => {
+                    $scope.number = $scope.number + amount;
+                }
+
+                $scope.decrement = (amount) => {
+                    $scope.number = $scope.number - amount;
+                }
+            }
+        </script>
+    </head>
+    <body ng-controller="MyController">
+        <h1>{{ name }}</h1>
+        <ul>
+            <li ng-repeat="rebel in rebels">{{ rebel.name }} is a {{ rebel.profession }} fighting with a {{ rebel.weapon }}</li>
+            <br>
+            {{ number }}
+            <p>
+                <button ng-click="increment(5)">Increment</button>
+                <button ng-click="decrement(5)">Decrement</button>
+            </p>
+        </ul>
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>Ex angular</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/scripts/angular.js"></script>
+        <script>
+            angular.module('myApp', [])
+                .controller('MyController', MyController)
+                .controller('MySecondController', MySecondController)
+
+            function MyController() {
+                var vm = this;
+                vm.name = 'main';
+            }
+
+            function MySecondController() {
+                var vm = this;
+                vm.name = 'second';
+            }
+        </script>
+    </head>
+    <body>
+       <div ng-controller="MyController as MyCtrl">
+           <div ng-controller="MySecondController as MySecondCtrl">
+                {{ MyCtrl.name }}
+               {{ MySecondCtrl.name }}
+           </div>
+       </div>
+    </body>
+</html>
