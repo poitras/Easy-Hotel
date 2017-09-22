@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 var routes = require("./api/routes");
 
-app.set("port", 3000);
+app.set("port", 3030);
 
 /* app.use(function(req, res, next) {
   // utilisation du middleware pour afficher les info concernant la requète doit être avant le call static car il descent le fichier
