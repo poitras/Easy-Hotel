@@ -2,12 +2,12 @@ angular.module('myApp', ['ngRoute']).config(config);
 
 function config($routeProvider) {
   $routeProvider.when('/', {
-    templateUrl: 'templates/main.html',
+    templateUrl: 'main/main.html',
     controller: 'MainController',
     controllerAs: 'vm'
-  }).when('/about/:id', {
-    templateUrl: 'templates/about.html',
-    controller: 'AboutController',
+  }).when('/post/:id', {
+    templateUrl: 'post/post.html',
+    controller: 'PostController',
     controllerAs: 'vm'
   }).when('/404', {
     templateUrl: 'templates/404.html'
