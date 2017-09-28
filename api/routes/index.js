@@ -3,10 +3,11 @@ var router = express.Router();
 
 var ctrlHotels = require('../controllers/hotels.controllers');
 var ctrlReviews = require('../controllers/reviews.controllers');
+var ctrlUsers = require('../controllers/users.controllers');
 
 router
     .route('/hotels')
-    .get( ctrlHotels.hotelsGetAll )
+    .get( ctrlUsers.authenticate, ctrlHotels.hotelsGetAll )
     .post( ctrlHotels.hotelsAddOne );
 router
     .route('/hotels/:hotelId')
@@ -24,5 +25,14 @@ router
     .get( ctrlReviews.reviewsGetOne )
     .put( ctrlReviews.reviewsUpdateOne )
     .delete( ctrlReviews.reviewsDeleteOne );
+
+// Authentication
+router
+  .route('/users/register')
+  .post(ctrlUsers.register);
+
+router
+  .route('/users/login')
+  .post(ctrlUsers.login);
 
 module.exports = router;

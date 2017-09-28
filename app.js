@@ -14,11 +14,14 @@ app.set("port", 3030);
   next();
 }); */
 
+// set static directory before defining routes
 app.use(express.static(path.join(__dirname, "public"))); // Will go directly go in public folder and search for html
 app.use('/scripts', express.static(__dirname + '/node_modules/'));
 
 // To parse the data in the api routes
 app.use(bodyParser.urlencoded({ extended: false }));
+// tell your api to natively anderstand json data
+app.use(bodyParser.json());
 
 app.use("/api", routes); // will look in the api folders for a route folder and then for index.js 
 

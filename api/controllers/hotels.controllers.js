@@ -43,7 +43,8 @@ var runGeoQuery = function(req, res) {
         });
 };
 module.exports.hotelsGetAll = function (req, res) {
-
+  console.log('Requested by:', req.user);
+  
     // to use with params like /hotels?offset=2&count=2
     var offset = 0;
     var count = 25;
